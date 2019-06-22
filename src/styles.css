@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+
+header {
+    border: 1px solid black;
+    height: 200px;
+}
+
+h1 {
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+button {
+    background-color: white;
+}
+
+.go_back {
+    border: 1px solid black;
+    width: 250px;
+    height: 100px;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 10px;
+}
+
+.current_folder {
+    font-size: 30px;
+    text-align: right;
+    margin: 10px;
+}
+
+.note_text {
+    margin: 20px;
+}
+
+.folders {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 100vh;
+}
+
+.folder_button {
+    border: 1px solid black;
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+}
+
+.add_folder_button {
+    border: 1px solid black;
+    width: 250px;
+    height: 100px;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.highlighted {
+    background-color: lightblue;
+}
+
+.notes {
+    border: 1px solid black;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.note_card {
+    margin: 10px;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.note_card h2 {
+    margin: 10px;
+}
+
+.delete_note {
+    float: right;
+    border: 1px solid black;
+}
+
+.add_note {
+    float: left;
+    border: 1px solid black;
+    margin: 10px;
+    width: 150px;
+    height: 50px;
+}
