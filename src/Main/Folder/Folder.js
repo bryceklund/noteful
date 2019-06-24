@@ -10,4 +10,4 @@ class Folder extends Component {
     }
 }
 
-export default Folder;
+export default Folder; 
