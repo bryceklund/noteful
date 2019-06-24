@@ -9,6 +9,13 @@ header {
     height: 200px;
 }
 
+
+h1 a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 h1 {
     margin-left: 300px;
     margin-top: 50px;
@@ -64,13 +71,6 @@ button {
 
 .highlighted {
     background-color: lightblue;
-}
-
-.notes {
-    border: 1px solid black;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 .note_card {
