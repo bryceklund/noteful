@@ -18,12 +18,10 @@ class App extends Component {
           <Route exact path='/' component={() => {
             return <Main store={this.state} />
           }} />  
-          <Route path='/notes/:noteId' component={() => {
+          {/*<Route path='/notes/:noteId' component={() => {
             return <NoteView data={this.state} />
           }} />
-          <Route path='/folders/:folderId' component={() => {
-            return <FolderView data={this.state} />
-          }} />
+          <Route path='/folder/:folderId' render={(routeProps) => <FolderView folder={this.state.folders.find(folder => folder.id === routeProps.match.params.folderId)} />} />*/}
       </div>
     );
   }

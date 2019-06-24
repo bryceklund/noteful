@@ -28,6 +28,6 @@ a.folder_button {
     margin-top: 25px;
 }
 
-.highlighted {
+.active {
     background-color: lightblue;
 }
