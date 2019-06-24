@@ -1,0 +1,33 @@
+.folders {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 100vh;
+}
+
+a.folder_button {
+    border: 1px solid black;
+    width: 300px;
+    height: 100px;
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add_folder_button {
+    border: 1px solid black;
+    width: 250px;
+    height: 100px;
+    font-size: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.highlighted {
+    background-color: lightblue;
+}
