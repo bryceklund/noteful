@@ -3,12 +3,29 @@ import { Link } from 'react-router-dom';
 import NotesContext from '../../NotesContext';
 import './Notes.css';
 
+function deleteNote(noteId, callback) {
+    fetch(`http://localhost:9090/notes/${noteId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'applications/json'
+      }
+    })
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .then(data => callback(noteId))
+    .catch(err => console.error(err))
+}
+
 class NoteView extends Component {
+    static contextType = NotesContext;
     render() {
         const noteId = this.props.match.params.noteId
-        console.log(noteId)
-        const noteCard = NotesContext.notes.find(note => note.id === noteId)
-        const folder = NotesContext.folders.find(folder => folder.id === noteCard.folderId)
+        const noteCard = this.context.notes.find(note => note.id === noteId)
+        const folder = this.context.folders.find(folder => folder.id === noteCard.folderId)
         return (
             <NotesContext.Consumer>
                 {(context) => (
@@ -21,7 +38,7 @@ class NoteView extends Component {
                         <div className="note_card">
                             <h2>{noteCard.name}</h2>
                             <p>Last modified on {noteCard.modified}</p>
-                            <button className="delete_note">Delete Note</button>
+                            <Link className="delete_note" onClick={() => deleteNote(noteId, context.deleteNote)} to='/' >Delete Note</Link>
                         </div>
                         <div className="note_text">
                             {noteCard.content}

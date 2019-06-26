@@ -5,15 +5,57 @@ import FolderView from './Main/Folders/FolderView';
 import Folders from  './Main/Folders/Folders';
 import NoteView from './Main/Notes/NoteView';
 import Notes from './Main/Notes/Notes';
-import STORE from './STORE';
 import NotesContext from './NotesContext';
 
 class App extends Component {
   state = {
-    folders: STORE.folders,
-    notes: STORE.notes,
+    folders: [],
+    notes: [],
     folderId: null,
     noteId: null
+  }
+
+  deleteNote = noteId => {
+    const newNotes = this.state.notes.filter(note => note.id !== noteId)
+    this.setState({
+      notes: newNotes
+    })  
+  }
+
+  componentDidMount() {
+    const url = 'http://localhost:9090/';
+    const options = {
+      method: 'GET',
+      headers: { 'content-type': 'application/json' }
+    }
+
+    //get folders
+    fetch(url + 'folders', options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json()
+      })
+      .then(data => this.setState({
+        folders: data
+      }))
+      .catch(err => console.error(err.message))
+
+      //get notes
+      fetch(url + 'notes', options)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.status);
+        }
+        return res.json()
+      })
+      .then(data => this.setState({
+        notes: data
+      }))
+      .catch(err => console.error(err.message))
+
+      console.log(this.state)
   }
 
   render() {
@@ -21,6 +63,7 @@ class App extends Component {
       folders: this.state.folders,
       notes: this.state.notes,
       selectedFolder: this.state.folderId,
+      deleteNote: this.deleteNote
     }
     return (
       <NotesContext.Provider value={contextValue}>
