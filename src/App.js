@@ -6,6 +6,7 @@ import Folders from  './Main/Folders/Folders';
 import NoteView from './Main/Notes/NoteView';
 import Notes from './Main/Notes/Notes';
 import STORE from './STORE';
+import NotesContext from './NotesContext';
 
 class App extends Component {
   state = {
@@ -15,20 +16,33 @@ class App extends Component {
     noteId: null
   }
 
+  updateFolder(folder) {
+    this.setState({
+      folderId: folder
+    })
+  }
 
   render() {
+    const contextValue = {
+      folders: this.state.folders,
+      notes: this.state.notes,
+      selectedFolder: this.state.folderId,
+      updateFolder: this.updateFolder
+    }
     return (
-      <div className="App">
-          <header>
-              <h1><Link to='/'>Noteful</Link></h1>
-          </header>  
-            <Route exact path='/' render={() => <Folders folders={this.state.folders} />} />
-            <Route path='/folder/:folderId' render={(props) => <FolderView folders={this.state.folders} notes={this.state.notes} props={props} />} />
-          
-            <Route exact path='/' render={() => <Notes notes={this.state.notes} />} />
-            <Route path='/note/:noteId' render={(props) => <NoteView folders={this.state.folders} notes={this.state.notes} props={props} />} />
-          
+      <NotesContext.Provider value={contextValue}>
+        <div className="App">
+            <header>
+                <h1><Link to='/'>Noteful</Link></h1>
+            </header>  
+              <Route exact path='/' component={Folders} />
+              <Route path='/folder/:folderId' component={FolderView} />
+            
+              <Route exact path='/' component={Notes} />
+              <Route path='/note/:noteId' component={NoteView} />
         </div>
+      </NotesContext.Provider>
+
     );
   }
   

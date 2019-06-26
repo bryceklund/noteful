@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NotesContext from '../../NotesContext';
 import './Notes.css';
 
 class NoteView extends Component {

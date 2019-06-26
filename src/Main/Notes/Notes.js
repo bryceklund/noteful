@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import NotesContext from '../../NotesContext';
 import './Notes.css';
 
 class Notes extends Component {
     render() {
         return (
+            <NotesContext.Consumer>
+            {(context) => (
         <section className="notes">
-            {this.props.notes.map(note => {
+            {context.notes.map(note => {
                 return (note.folderId === this.props.folder) 
                 ? (
                     <div className="note_card" key={note.id}>
@@ -15,7 +18,7 @@ class Notes extends Component {
                         <button className="delete_note">Delete Note</button>
                     </div>
                 )
-                : ( (!this.props.folder) 
+                : ( (!context.folder) 
                     ? (
                         <div className="note_card" key={note.id}>
                             <h2><Link to={`/note/${note.id}`}>{note.name}</Link></h2>
@@ -28,6 +31,8 @@ class Notes extends Component {
             })}
             <button className="add_note">Add note</button>
         </section>
+            )}
+            </NotesContext.Consumer>
         );
     }
 }
