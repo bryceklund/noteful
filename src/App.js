@@ -16,18 +16,11 @@ class App extends Component {
     noteId: null
   }
 
-  updateFolder(folder) {
-    this.setState({
-      folderId: folder
-    })
-  }
-
   render() {
     const contextValue = {
       folders: this.state.folders,
       notes: this.state.notes,
       selectedFolder: this.state.folderId,
-      updateFolder: this.updateFolder
     }
     return (
       <NotesContext.Provider value={contextValue}>

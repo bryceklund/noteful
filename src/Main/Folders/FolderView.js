@@ -7,13 +7,10 @@ import './Folders.css';
 class FolderView extends Component {
     render() {
         const selectedFolder = this.props.match.params.folderId
-        
         return (
-            
             <NotesContext.Consumer>
                 {(context) => (
                     <>
-                        {context.updateFolder(selectedFolder)}
                         <section className="folders">
                         {context.folders.map(folder => {
                             return <NavLink 
@@ -27,7 +24,7 @@ class FolderView extends Component {
                         })}
                         <Link to='/' className="go_back">Go back</Link>
                         </section>
-                        <Notes notes={context.notes} />
+                        <Notes folder={selectedFolder} />
                     </>
                 )}
             </NotesContext.Consumer>
