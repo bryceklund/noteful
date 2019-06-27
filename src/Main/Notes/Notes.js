@@ -49,7 +49,7 @@ class Notes extends Component {
                     : null
                 ) 
             })}
-            <button className="add_note">Add note</button>
+            <Link to='/addnote' className="add_note">Add note</Link>
         </section>
             )}
             </NotesContext.Consumer>
