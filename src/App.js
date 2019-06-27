@@ -6,6 +6,7 @@ import Folders from  './Main/Folders/Folders';
 import NoteView from './Main/Notes/NoteView';
 import Notes from './Main/Notes/Notes';
 import NotesContext from './NotesContext';
+import AddFolder from './Main/Folders/AddFolder/AddFolder';
 
 class App extends Component {
   state = {
@@ -73,7 +74,7 @@ class App extends Component {
             </header>  
               <Route exact path='/' component={Folders} />
               <Route path='/folder/:folderId' component={FolderView} />
-            
+              <Route path='/addfolder' component={AddFolder} />
               <Route exact path='/' component={Notes} />
               <Route path='/note/:noteId' component={NoteView} />
         </div>
