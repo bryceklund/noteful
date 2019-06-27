@@ -1,0 +1,36 @@
+.add_note_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;   
+    margin-top: 25px;
+    border: 1px solid black;
+    width: 500px;
+    padding-top: 20px;
+    padding-bottom: 50px; 
+    font-size: px;
+}
+
+.select_folder {
+    height: 30px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.note_title {
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
+}
+
+.note_content {
+    width: 400px;
+    height: 100px;
+    padding: 10px;
+}
