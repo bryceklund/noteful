@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import Notes from '../Notes/Notes';
-import NotesContext from '../../NotesContext';
-import ErrorBound from '../../ErrorBound';
+import Notes from './Notes';
+import NotesContext from '../NotesContext';
+import ErrorBound from './ErrorBound';
 import './Folders.css';
 
 

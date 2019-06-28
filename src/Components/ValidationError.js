@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ValidationError.css';
 
 export default function ValidationError(props) {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import NotesContext from '../../NotesContext';
+import NotesContext from '../NotesContext';
 import './Notes.css';
 
 function deleteNote(noteId, callback) {

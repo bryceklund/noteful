@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './styles.css';
+import './App.css';
 import { Route, Link } from 'react-router-dom';
-import FolderView from './Main/Folders/FolderView';
-import Folders from  './Main/Folders/Folders';
-import NoteView from './Main/Notes/NoteView';
-import Notes from './Main/Notes/Notes';
+import FolderView from './Components/FolderView';
+import Folders from  './Components/Folders';
+import NoteView from './Components/NoteView';
+import Notes from './Components/Notes';
 import NotesContext from './NotesContext';
-import AddFolder from './Main/Folders/AddFolder/AddFolder';
-import AddNote from './Main/Notes/AddNote/AddNote';
-import ErrorBound from './ErrorBound';
+import AddFolder from './Components/AddFolder';
+import AddNote from './Components/AddNote';
+import ErrorBound from './Components/ErrorBound';
 
 class App extends Component {
   state = {

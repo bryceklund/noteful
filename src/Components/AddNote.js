@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NotesContext from '../../../NotesContext';
+import NotesContext from '../NotesContext';
 import ValidationError from './ValidationError';
 import PropTypes from 'prop-types';
 import './AddNote.css';
