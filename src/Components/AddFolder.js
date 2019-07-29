@@ -9,13 +9,14 @@ class AddFolder extends Component {
     }
 
     addFolder(folderName, callback) {
-        const name = { name: folderName };
-        const url = `http://localhost:9090/folders/`;
+        const name = { title: folderName };
+        const url = `http://localhost:8000/api/folders/`;
         const options = {
             method: 'POST',
             body: JSON.stringify(name),
             headers: {
                 'content-type': 'application/json',
+                'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
             }
         };
     

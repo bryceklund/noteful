@@ -22,16 +22,17 @@ class AddNote extends Component {
         e.preventDefault();
         const { noteName, noteContent, noteFolder } = this.state
         const note = {
-            name: noteName,
+            title: noteName,
             content:  noteContent,
-            folderId: noteFolder
+            folderid: noteFolder
         }
-        const url = 'http://localhost:9090/notes/';
+        const url = 'http://localhost:8000/api/notes/';
         const options = {
             method: 'POST',
             body: JSON.stringify(note),
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
             }
         };
         fetch(url, options)
@@ -41,7 +42,7 @@ class AddNote extends Component {
                 }
                 return res.json();
             })
-            .then(data => callback(data.name, data.content, data.folderId, data.id))
+            .then(data => callback(data.name, data.content, data.folderid, data.id))
             .then(this.goBack)
             .catch(err => console.error(err))
     }
@@ -78,7 +79,7 @@ class AddNote extends Component {
                         <label htmlFor='select_folder' className='hidden'>Folder: {' '}</label>
                         <select name='select_folder' className='select_folder' onChange={e => this.updateFolderId(e.target.value)}>
                             <option value=''>Select a folder...</option>
-                            {context.folders.map((folder, i) => <option key={i} value={folder.id}>{folder.name}</option>)}
+                            {context.folders.map((folder, i) => <option key={i} value={folder.id}>{folder.title}</option>)}
                         </select><br />
                         <label htmlFor='note_name' className='hidden'>Note title: {' '}</label>
                         <input type='text' id='note_name' name='note_name' className='note_title' placeholder='Note title' onChange={e => this.updateName(e.target.value)} />

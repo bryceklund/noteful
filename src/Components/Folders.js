@@ -10,7 +10,6 @@ class Folders extends Component {
                 {(context) => (
                     <section className="folders">
                         {context.folders.map(folder => {
-                            console.log(context)
                             return <NavLink 
                                 to={`/folder/${folder.id}`} 
                                 className="folder_button" 

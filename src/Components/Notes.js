@@ -4,10 +4,11 @@ import NotesContext from '../NotesContext';
 import './Notes.css';
 
 function deleteNote(noteId, callback) {
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(`http://localhost:8000/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
-        'content-type': 'applications/json'
+        'content-type': 'applications/json',
+        'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
       }
     })
     .then(res => {
@@ -30,7 +31,7 @@ class Notes extends Component {
                 
         <section className="notes">
             {context.notes.map(note => {
-                return (note.folderId === this.props.folder) 
+                return (note.folderid == parseInt(this.props.folder)) 
                 ? (
                     <div className="note_card" key={note.id}>
                         <h2><Link to={`/note/${note.id}`}>{note.title}</Link></h2>
