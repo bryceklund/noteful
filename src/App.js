@@ -22,7 +22,7 @@ class App extends Component {
     const { notes } = this.state;
     const newNote = {
       id: noteId,
-      name: noteName,
+      title: noteName,
       folderId: folderId,
       content: noteContent
     }
@@ -35,7 +35,7 @@ class App extends Component {
     const { folders } = this.state
     const newFolder = {
       id: folderId,
-      name: folderName
+      title: folderName
     }
     this.setState({
       folders: [...folders,  newFolder]
@@ -57,10 +57,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const url = 'http://localhost:9090/';
+    const url = 'http://localhost:8000/api/';
     const options = {
       method: 'GET',
-      headers: { 'content-type': 'application/json' }
+      headers: { 
+        'content-type': 'application/json',
+        'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
+      }
     }
 
     //get folders

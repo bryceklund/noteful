@@ -33,7 +33,7 @@ class Notes extends Component {
                 return (note.folderId === this.props.folder) 
                 ? (
                     <div className="note_card" key={note.id}>
-                        <h2><Link to={`/note/${note.id}`}>{note.name}</Link></h2>
+                        <h2><Link to={`/note/${note.id}`}>{note.title}</Link></h2>
                         <p>Last modified on {note.modified}</p>
                         <button className="delete_note" onClick={() => deleteNote(note.id, context.deleteNote)} >Delete Note</button>
                     </div>
@@ -41,7 +41,7 @@ class Notes extends Component {
                 : ( (!this.props.folder) 
                     ? (
                         <div className="note_card" key={note.id}>
-                            <h2><Link to={`/note/${note.id}`}>{note.name}</Link></h2>
+                            <h2><Link to={`/note/${note.id}`}>{note.title}</Link></h2>
                             <p>Last modified on {note.modified}</p>
                             <button className="delete_note" onClick={() => deleteNote(note.id, context.deleteNote)} >Delete Note</button>
                         </div>

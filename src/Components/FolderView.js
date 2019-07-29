@@ -12,10 +12,11 @@ class FolderView extends Component {
         this.props.history.push('/')
     }
     deleteFolder = (folderId, callback) => {
-        fetch(`http://localhost:9090/folders/${folderId}`, {
+        fetch(`http://localhost:8000/api/folders/${folderId}`, {
           method: 'DELETE',
           headers: {
-            'content-type': 'applications/json'
+            'content-type': 'applications/json',
+            'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
           }
         })
         .then(res => {
@@ -42,7 +43,7 @@ class FolderView extends Component {
                                         activeClassName="active" 
                                         key={folder.id} 
                                         store={context.folders}>
-                                        {folder.name}
+                                        {folder.title}
                                     </NavLink>
                         })}
                         <Link to='/' className="go_back">Go back</Link>
