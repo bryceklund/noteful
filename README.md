@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The noteful server can be found in my repos as well. [This app is live on Zeit](https://noteful.bryceklund.now.sh/) (server and DB are on Heroku). The initial API call might take a moment to GET - please be patient :)
+
 ## Available Scripts
 
 In the project directory, you can run:
