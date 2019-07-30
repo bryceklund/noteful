@@ -62,10 +62,9 @@ class App extends Component {
       method: 'GET',
       headers: { 
         'content-type': 'application/json',
-        'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
+        'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
       }
-    }
-
+    } 
     //get folders
     fetch(url + 'folders', options)
       .then(res => {
