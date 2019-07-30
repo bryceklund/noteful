@@ -12,18 +12,18 @@ class FolderView extends Component {
         this.props.history.push('/')
     }
     deleteFolder = (folderId, callback) => {
-        fetch(`http://localhost:8000/api/folders/${folderId}`, {
+        fetch(`https://evening-ravine-30179.herokuapp.com/api/folders/${folderId}`, {
           method: 'DELETE',
           headers: {
             'content-type': 'applications/json',
-            'Authorization': 'Bearer 33d5dd60-6329-43f7-a817-1d21f6dece63'
-          }
+            'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`
+        }
         })
         .then(res => {
           if (!res.ok) {
             throw new Error(res.status)
           }
-          return res.json()
+          return res
         })
         .then(data => callback(folderId))
         .then(this.goBack)

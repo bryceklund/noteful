@@ -18,13 +18,14 @@ class App extends Component {
     noteId: null
   }
 
-  addNote = (noteName, noteContent, folderId, noteId) => {
+  addNote = (noteName, noteContent, folderId, noteId, noteModified) => {
     const { notes } = this.state;
     const newNote = {
       id: noteId,
       title: noteName,
       folderId: folderId,
-      content: noteContent
+      content: noteContent,
+      modified: noteModified
     }
     this.setState({
       notes: [...notes, newNote]
@@ -50,14 +51,17 @@ class App extends Component {
   }
 
   deleteFolder = folderId => {
-    const newFolders = this.state.folders.filter(folder => folder.id !== folderId)
+    console.log('deleteFolder running...')
+    console.log(typeof folderId)
+    const newFolders = this.state.folders.filter(folder => folder.id !== parseInt(folderId))
+    console.log(newFolders)
     this.setState({
       folders: newFolders
     })
   }
 
   componentDidMount() {
-    const url = 'http://localhost:8000/api/';
+    const url = 'https://evening-ravine-30179.herokuapp.com/api/';
     const options = {
       method: 'GET',
       headers: { 

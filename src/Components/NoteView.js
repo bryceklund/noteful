@@ -4,7 +4,7 @@ import NotesContext from '../NotesContext';
 import './Notes.css';
 
 function deleteNote(noteId, callback) {
-    fetch(`http://localhost:8000/api/notes/${noteId}`, {
+    fetch(`https://evening-ravine-30179.herokuapp.com/api/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'applications/json',

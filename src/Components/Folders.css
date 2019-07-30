@@ -34,7 +34,7 @@ a.folder_button, a.go_back {
 }
 
 .delete_folder {
-    width: 150px;
+    width: 200px;
     height: 50px;
     background-color: red;
     margin-left: auto;

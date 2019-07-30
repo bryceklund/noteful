@@ -24,9 +24,10 @@ class AddNote extends Component {
         const note = {
             title: noteName,
             content:  noteContent,
-            folderid: noteFolder
+            folderid: noteFolder,
+            modified: new Date().toLocaleString().toString()
         }
-        const url = 'http://localhost:8000/api/notes/';
+        const url = 'https://evening-ravine-30179.herokuapp.com/api/notes';
         const options = {
             method: 'POST',
             body: JSON.stringify(note),
@@ -42,7 +43,7 @@ class AddNote extends Component {
                 }
                 return res.json();
             })
-            .then(data => callback(data.name, data.content, data.folderid, data.id))
+            .then(data => callback(data.title, data.content, data.folderid, data.id, data.modified))
             .then(this.goBack)
             .catch(err => console.error(err))
     }
