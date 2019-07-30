@@ -51,10 +51,7 @@ class App extends Component {
   }
 
   deleteFolder = folderId => {
-    console.log('deleteFolder running...')
-    console.log(typeof folderId)
     const newFolders = this.state.folders.filter(folder => folder.id !== parseInt(folderId))
-    console.log(newFolders)
     this.setState({
       folders: newFolders
     })
