@@ -50,7 +50,8 @@ class Notes extends Component {
                     : null
                 ) 
             })}
-            <Link to='/addnote' className="add_note">Add note</Link>
+            { (this.props.folder) ? <Link to={`/addnote/${this.props.folder}`} className="add_note">Add note</Link> : <Link to='/addnote' className="add_note">Add note</Link> }
+            
         </section>
             )}
             </NotesContext.Consumer>

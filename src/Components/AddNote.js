@@ -72,13 +72,17 @@ class AddNote extends Component {
             nameValid: !hasError
         })
     }
+    
     render() {
+        const selectedFolder = parseInt(this.props.location.pathname.substr(-1));
         return (
+            
             <NotesContext.Consumer>
                 {(context) => (
+                    
                     <form className='add_note_form' id='add_note' onSubmit={e => this.addNote(e, context.addNote)}>
                         <label htmlFor='select_folder' className='hidden'>Folder: {' '}</label>
-                        <select name='select_folder' className='select_folder' onChange={e => this.updateFolderId(e.target.value)}>
+                        <select name='select_folder' className='select_folder' value={selectedFolder} onChange={e => this.updateFolderId(e.target.value)}>
                             <option value=''>Select a folder...</option>
                             {context.folders.map((folder, i) => <option key={i} value={folder.id}>{folder.title}</option>)}
                         </select><br />
