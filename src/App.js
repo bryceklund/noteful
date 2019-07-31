@@ -23,7 +23,7 @@ class App extends Component {
     const newNote = {
       id: noteId,
       title: noteName,
-      folderId: folderId,
+      folderid: folderId,
       content: noteContent,
       modified: noteModified
     }
